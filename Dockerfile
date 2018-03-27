@@ -4,6 +4,7 @@ ENV GITEA_VER="v1.4.0"
 ENV GOPATH="/opt/go"
 
 RUN addgroup git && \
+	mkdir /opt/git && \
 	adduser -h /opt/git -s /bin/bash \
 		-D -G git git
 
