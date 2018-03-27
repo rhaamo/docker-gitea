@@ -3,9 +3,13 @@ FROM alpine:3.7
 ENV GITEA_VER="v1.4.0"
 ENV GOPATH="/opt/go"
 
+RUN addgroup git && \
+	adduser -h /opt/git -s /bin/bash \
+		-D -G git git
+
 RUN apk add -U --virtual deps go \
 		make musl-dev && \
-	apk add git && \
+	apk add git bash && \
 	go get -d -u code.gitea.io/gitea && \
 	cd $GOPATH/src/code.gitea.io/gitea && \
 	git checkout tags/$GITEA_VER && \
