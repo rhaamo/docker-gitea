@@ -1,12 +1,13 @@
 FROM alpine:3.7
 
 ENV GITEA_VER="v1.4.0"
-ENV GOPATH="/opt/go"
+ENV GOPATH="/opt/git/go"
 
 RUN addgroup git && \
 	mkdir -p /opt/git && \
 	adduser -h /opt/git -s /bin/bash \
-		-D -G git git
+		-D -G git git && \
+	chown git:git /opt/git
 
 RUN apk add -U --virtual deps go \
 		make musl-dev && \
@@ -19,4 +20,5 @@ RUN apk add -U --virtual deps go \
 	apk del --purge deps && \
 	rm -rf $GOPATH/src/code.gitea.io/gitea/.git* && \
 	rm -rf ~/go/pkg/ && \
-	rm -rf $GOPATH/src/code.gitea.io/gitea/vendor
+	rm -rf $GOPATH/src/code.gitea.io/gitea/vendor && \
+	chown git:git -R $GOPATH/*
