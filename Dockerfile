@@ -1,7 +1,7 @@
 FROM alpine:3.7
 
 ENV GITEA_VER="v1.4.0"
-ENV GOPATH="/root/go"
+ENV GOPATH="/opt/go"
 
 RUN apk add -U --virtual deps go \
 		make musl-dev && \
