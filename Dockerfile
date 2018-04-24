@@ -23,4 +23,5 @@ RUN apk add -U --virtual deps go \
     rm -rf ~/go/pkg/ && \
     rm -rf $GOPATH/src/code.gitea.io/gitea/vendor
 
-CMD ash -c 'su git -c /opt/git/go/src/code.gitea.io/gitea/gitea web'
+USER git
+CMD /opt/git/go/src/code.gitea.io/gitea/gitea web
