@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ENV GITEA_VER="v1.4.0"
+ENV GITEA_VER="v1.4.1"
 ENV GOPATH="/opt/git/go"
 
 RUN addgroup git && \
