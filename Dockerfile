@@ -1,7 +1,7 @@
 FROM golang:1.10.2-alpine3.7 as build-container
 
 ENV GITEA_VER="v1.4.1"
-ENV TAGS="bindata"
+ENV TAGS="bindata redis"
 
 # The build container
 RUN apk add -U build-base git && \
