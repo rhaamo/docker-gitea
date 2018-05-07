@@ -14,7 +14,7 @@ RUN apk add -U build-base git && \
 FROM alpine:3.7
 
 RUN addgroup git && \
-    adduser -D -h /opt -s /bin/bash -G git git && \
+    adduser -D -h /opt -G git git && \
     echo "git:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -m sha256`" | chpasswd && \
     apk add -U --no-cache git
 
