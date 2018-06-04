@@ -23,5 +23,5 @@ COPY --from=build-container /go/src/code.gitea.io/gitea/gitea /opt/gitea
 
 RUN chown git:git -R /opt
 
-USER git
+ENV USER=git
 CMD /opt/gitea web
