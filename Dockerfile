@@ -1,6 +1,6 @@
 FROM golang:1.10.2-alpine3.7 as build-container
 
-ENV GITEA_VER="v1.4.1"
+ENV GITEA_VER="v1.4.2"
 ENV TAGS="bindata redis"
 
 # The build container
@@ -16,7 +16,7 @@ FROM alpine:3.7
 RUN addgroup git && \
     adduser -D -h /opt -G git git && \
     echo "git:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -m sha256`" | chpasswd && \
-    apk add -U --no-cache git openssh
+    apk add -U --no-cache git openssh-keygen
 
 COPY --from=build-container /go/src/code.gitea.io/gitea/custom /opt/custom
 COPY --from=build-container /go/src/code.gitea.io/gitea/gitea /opt/gitea
