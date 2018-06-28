@@ -1,6 +1,6 @@
 pipeline:
     docker:
         image: plugins/docker
-        dockerfile: ./Dockerfile
+        dockerfile: Dockerfile
         repo: sirboops/gitea
         secrets: [ hub_user, hub_pass ]
