@@ -18,6 +18,7 @@ RUN addgroup git && \
     echo "git:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -m sha256`" | chpasswd && \
     apk add -U --no-cache git openssh-keygen
 
+COPY --from=build-container /go/src/code.gitea.io/gitea/custom /opt/custom
 COPY --from=build-container /go/src/code.gitea.io/gitea/gitea /opt/gitea
 
 RUN chown git:git -R /opt
