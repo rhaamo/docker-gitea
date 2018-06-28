@@ -2,5 +2,4 @@ pipeline:
     docker:
         image: plugins/docker
         dockerfile: ./Dockerfile
-        tags:
-            - latest
+        tags: latest
