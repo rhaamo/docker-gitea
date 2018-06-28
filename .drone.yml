@@ -1,4 +1,4 @@
-pipline:
+pipeline:
     docker:
         image: plugins/docker
         dockerfile: ./Dockerfile
