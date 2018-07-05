@@ -1,5 +1,5 @@
 TAGS="1.5.0-rc1 latest"
-DOCKER_REPO="sirboops/pleroma"
+DOCKER_REPO="sirboops/gitea"
 
 BUILD_TAGS=""
 
