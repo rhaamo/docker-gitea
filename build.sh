@@ -1,4 +1,4 @@
-TAGS="1.5.0-rc1 latest"
+TAGS="1.5.0-rc2 latest"
 DOCKER_REPO="sirboops/gitea"
 
 BUILD_TAGS=""
