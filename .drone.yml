@@ -1,0 +1,9 @@
+pipeline:
+    docker:
+        image: plugins/docker
+        dockerfile: Dockerfile
+        repo: sirboops/gitea
+        tags: [1.5.0-rc2, latest]
+        experimental: true
+        squash: true
+        secrets: [ docker_username, docker_password ]
