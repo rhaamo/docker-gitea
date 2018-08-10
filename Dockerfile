@@ -1,4 +1,4 @@
-FROM golang:1.10.3-alpine3.7 as build-container
+FROM golang:1.10.3-alpine3.8 as build-container
 
 ENV GITEA_VER="v1.5.0"
 ENV TAGS="bindata redis"
@@ -11,7 +11,7 @@ RUN apk add -U build-base git && \
     make clean generate build
 
 # The release container
-FROM alpine:3.7
+FROM alpine:3.8
 
 RUN addgroup git && \
     adduser -D -h /opt -G git git && \
