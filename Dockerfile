@@ -1,6 +1,6 @@
 FROM golang:1.10.3-alpine3.8 as build-container
 
-ENV GITEA_VER="v1.5.0"
+ENV GITEA_VER="v1.5.1"
 ENV TAGS="bindata redis"
 
 # The build container
