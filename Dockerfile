@@ -14,8 +14,7 @@ RUN apk add -U build-base git && \
 FROM alpine:3.8
 
 RUN addgroup git && \
-    adduser -D -h /opt -G git git && \
-    echo "git:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -m sha256`" | chpasswd && \
+    adduser -D -S -u 1000 -h /opt -G git git && \
     apk add -U --no-cache git openssh-keygen
 
 COPY --from=build-container /go/src/code.gitea.io/gitea/custom /opt/custom
