@@ -1,13 +1,13 @@
 FROM golang:1.11.4-alpine3.8 as build-container
 
-ENV GITEA_VER="v1.7.0-rc2"
+ENV GITEA_VER="1.6.4"
 ENV TAGS="bindata redis"
 
 # The build container
 RUN apk add -U build-base git && \
     go get -d -u code.gitea.io/gitea && \
     cd $GOPATH/src/code.gitea.io/gitea && \
-    git checkout tags/$GITEA_VER && \
+    git checkout tags/v$GITEA_VER && \
     make clean generate build
 
 # The release container
