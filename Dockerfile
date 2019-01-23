@@ -1,6 +1,6 @@
 FROM golang:1.11.4-alpine3.8 as build-container
 
-ENV GITEA_VER="1.6.4"
+ENV GITEA_VER="1.7.0"
 ENV TAGS="bindata redis"
 
 # The build container
@@ -22,5 +22,6 @@ COPY --from=build-container /go/src/code.gitea.io/gitea/gitea /opt/gitea
 
 RUN chown git:git -R /opt
 
+USER git
 ENV USER=git
 CMD /opt/gitea web
