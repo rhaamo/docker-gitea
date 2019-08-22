@@ -2,8 +2,8 @@ pipeline:
     docker:
         image: plugins/docker
         dockerfile: Dockerfile
-        repo: sirboops/gitea
-        tags: [1.8.3, latest]
+        repo: dashie/gitea
+        tags: [1.9.1, latest]
         experimental: true
         squash: true
         secrets: [ docker_username, docker_password ]
